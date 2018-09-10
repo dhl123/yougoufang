@@ -17,4 +17,14 @@ public class QuestionAnsPlus extends BaseModel {
 
     @Column
     private int userId;
+    @Column
+    private int answerId;
+
+    public int getAnswerId() {
+        return answerId;
+    }
+
+    public void setAnswerId(int answerId) {
+        this.answerId = answerId;
+    }
 }

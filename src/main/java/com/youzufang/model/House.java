@@ -10,15 +10,18 @@ import java.util.List;
 public class House extends BaseModel {
    // @Column
     @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name="userId")
     private Account user;
 
 
     @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="houseId")
     private List<Comment> comments;
 
     @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="houseId")
     private List<Question> questions;
 
     public Account getUser() {
@@ -106,11 +109,11 @@ public class House extends BaseModel {
         this.equipment = equipment;
     }
 
-    public ArrayList<String> getImages() {
+    public String getImages() {
         return Images;
     }
 
-    public void setImages(ArrayList<String> images) {
+    public void setImages(String images) {
         Images = images;
     }
 
@@ -121,7 +124,9 @@ public class House extends BaseModel {
     private String type;
 
     @Column
+
     private int area;
+
 
     @Column
     private int floor;
@@ -142,5 +147,5 @@ public class House extends BaseModel {
     private String equipment;
 
     @Column
-    private ArrayList<String> Images;
+    private String Images;
 }

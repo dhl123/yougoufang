@@ -9,8 +9,19 @@ import java.util.List;
 public class QuestionAns extends ContentBaseModel {
 
    // @Column
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="answerId")
     private List<QuestionAnsPlus> pluses;
+    @Column
+    private int questionId;
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
 
     public List<QuestionAnsPlus> getPluses() {
         return pluses;

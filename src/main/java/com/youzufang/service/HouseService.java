@@ -11,12 +11,12 @@ public interface HouseService {
     // 发布房屋
     // 创建一个 house 对象然后把里面的 user 设置成发布人
     // 返回发布后的 house
-    House releaseHouse(House house);
+    //House releaseHouse(House house);
 
     House getHouseById(int id);
 
     // 直接查出所有的 house, 考虑那边用带分页的那个Page...Repository?
-    List<House> getAllHouse();
+  //  List<House> getAllHouse();
 
     // 按 xx 条件筛选
     // 下面要有一大堆筛选和查询的 service, 写起来估计会很混乱, 先放着

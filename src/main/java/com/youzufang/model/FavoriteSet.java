@@ -7,8 +7,9 @@ import java.util.List;
 
 @Entity
 public class FavoriteSet extends BaseModel {
-    @Column
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //@Column
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="setId")
     private List<FavoriteSetItem> items;
 
     public String getName() {
@@ -30,6 +31,17 @@ public class FavoriteSet extends BaseModel {
     @Column
     private String name;
 
+    public int getUserId() {
+        return user_id;
+    }
+
+    public void setUserId(int userId) {
+        this.user_id = userId;
+    }
+
+    @Column
+
+    private int user_id;
     @Column
     private String description;
 

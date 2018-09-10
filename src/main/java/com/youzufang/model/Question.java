@@ -9,7 +9,8 @@ import java.util.List;
 public class Question extends ContentBaseModel {
 
     //@Column
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="questionId")
     private List<QuestionAns> answers;
 
     public List<QuestionAns> getAnswers() {
