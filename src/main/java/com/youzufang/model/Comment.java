@@ -6,7 +6,5 @@ import javax.persistence.Entity;
 
 @Entity
 public class Comment extends ContentBaseModel {
-    /*
-    ... //TODO: 补充
-     */
+
 }
