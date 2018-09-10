@@ -32,16 +32,16 @@ public class FavoriteSet extends BaseModel {
     private String name;
 
     public int getUserId() {
-        return user_id;
+        return userId;
     }
 
     public void setUserId(int userId) {
-        this.user_id = userId;
+        this.userId = userId;
     }
 
     @Column
 
-    private int user_id;
+    private int userId;
     @Column
     private String description;
 

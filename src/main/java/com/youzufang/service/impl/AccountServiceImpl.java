@@ -1,5 +1,7 @@
 package com.youzufang.service.impl;
 
+import com.youzufang.dao.FavoriteItemDao;
+import com.youzufang.dao.FavoriteSetDao;
 import com.youzufang.model.Account;
 import com.youzufang.dao.AccountDao;
 import com.youzufang.model.FavoriteSet;
@@ -12,18 +14,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AccountServiceImpl implements AccountService{
     final AccountDao dao;
-
+    final FavoriteItemDao itemDao;
+    final FavoriteSetDao setDao;
     @Autowired
     HouseService houseService;
     @Autowired
-    public AccountServiceImpl(AccountDao dao) {
+    public AccountServiceImpl(AccountDao dao,FavoriteItemDao itemDao,final FavoriteSetDao setDao) {
         this.dao = dao;
+        this.itemDao=itemDao;
+        this.setDao=setDao;
     }
 
     @Override
@@ -50,12 +56,12 @@ public class AccountServiceImpl implements AccountService{
     public Account getUserById(int id) {
         return dao.getAccountById(id);
     }
-    
+
 
     @Override
     public List<House> getUserFavorite(Account user) {
-        FavoriteSet favoriteSet= dao.getSetByUserId(user.getId());
-        List<FavoriteSetItem> items=dao.getItemsBySetId(favoriteSet.getId());
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
+        List<FavoriteSetItem> items=itemDao.getFavoriteSetItemsBySetId(favoriteSet.getId());
         List<House> houses=new ArrayList<House>();
         for(FavoriteSetItem item :items){
             houses.add(houseService.getHouseById(item.getHouseId()));
@@ -67,13 +73,21 @@ public class AccountServiceImpl implements AccountService{
     // 获得用户的收藏夹, 然后创建一个新的 FavoriteSetItem, 设置它的 houseId 之后添加到 user.favoriteSet.items 里
     @Override
     public List<House> addHouseToUserFavorite(Account user, House house) {
-        return null;
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
+        FavoriteSetItem item=new FavoriteSetItem();
+        item.setHouseId(house.getId());
+        item.setUserId(user.getId());
+        item.setSetId(favoriteSet.getId());
+        itemDao.save(item);
+        return getUserFavorite(user);
     }
-    // 删掉收藏夹里的收藏
-    // 逻辑和上面的差不多
+
     @Override
     public List<House> removeHouseFromUserFavorite(Account user, House house) {
-        return null;
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
+        itemDao.deleteFavoriteSetItemBySetIdAndHouseId(favoriteSet.getId(),house.getId());
+        return getUserFavorite(user);
+
     }
 }
 
