@@ -18,7 +18,6 @@ public class Account extends BaseModel {
     private String pubkey;
     private String privkey;
 
-    @Column
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private FavoriteSet favoriteSet;
 

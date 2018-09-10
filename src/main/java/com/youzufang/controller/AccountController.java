@@ -17,7 +17,7 @@ public class AccountController {
     @RequestMapping("/toHello")
     public String toHello(ModelMap modelMap){
         Account user = new Account();
-        user.setId(1);
+        //user.setId(1);
         user.setAddress("address");
         user.setGender(0);
         user.setPassword("123456");
@@ -25,11 +25,11 @@ public class AccountController {
         user.setPrivkey("prikey");
         user.setPubkey("pubkey");
         user.setUsername("user1");
-        user.setCreatedat(new Timestamp(new Date().getTime()));
-        user.setUpdateat(new Timestamp(new Date().getTime()));
+       // user.setCreatedat(new Timestamp(new Date().getTime()));
+        //user.setUpdateat(new Timestamp(new Date().getTime()));
 
         System.out.println(accountService);
-        accountService.signIn(user);
+        //accountService.signIn(user);
         return "helloBoot";
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Question extends ContentBaseModel {
 
-    @Column
+    //@Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<QuestionAns> answers;
 

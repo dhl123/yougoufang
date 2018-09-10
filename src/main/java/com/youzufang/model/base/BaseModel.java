@@ -2,7 +2,8 @@ package com.youzufang.model.base;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class BaseModel {
     @Id
     @GeneratedValue

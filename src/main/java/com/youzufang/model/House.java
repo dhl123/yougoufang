@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 public class House extends BaseModel {
-    @Column
+   // @Column
     @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     private Account user;
 
