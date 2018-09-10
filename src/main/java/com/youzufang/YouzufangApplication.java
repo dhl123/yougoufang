@@ -1,4 +1,4 @@
-package com.youzufang.youzufang;
+package com.youzufang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

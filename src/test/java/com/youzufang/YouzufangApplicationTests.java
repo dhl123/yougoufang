@@ -1,4 +1,4 @@
-package com.youzufang.youzufang;
+package com.youzufang;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

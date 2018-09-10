@@ -1,4 +1,4 @@
-package com.youzufang.youzufang;
+package com.youzufang;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

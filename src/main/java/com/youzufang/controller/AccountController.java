@@ -1,7 +1,7 @@
-package com.youzufang.youzufang.controller;
+package com.youzufang.controller;
 
-import com.youzufang.youzufang.domain.Account;
-import com.youzufang.youzufang.service.AccountService;
+import com.youzufang.model.Account;
+import com.youzufang.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 public class AccountController {

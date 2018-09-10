@@ -1,11 +1,15 @@
-package com.youzufang.youzufang.domain;
+package com.youzufang.model;
+
+import com.youzufang.model.base.BaseModel;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.List;
+
 @Entity
 @Table(name = "user")
-public class Account {
-    private int id;
+
+//FIXME: 从 BaseModel 继承, 它实现了Id,CreatedAt和DeletedAt这几个字段, 所有的Model都有这几个字段所以提取出来
+public class Account extends BaseModel {
     private String username;
     private String password;
     private String phonenumber;
@@ -13,21 +17,15 @@ public class Account {
     private String address;
     private String pubkey;
     private String privkey;
-    private Timestamp createdat;
-    private Timestamp updateat;
+
+    @Column
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private FavoriteSet favoriteSet;
+
 
     public Account() {
     }
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
     @Column(name = "username")
     public String getUsername() {
         return username;
@@ -84,20 +82,8 @@ public class Account {
     public void setPrivkey(String privkey) {
         this.privkey = privkey;
     }
-    @Column(name = "createdat")
-    public Timestamp getCreatedat() {
-        return createdat;
-    }
 
-    public void setCreatedat(Timestamp createdat) {
-        this.createdat = createdat;
-    }
-    @Column(name = "updateat")
-    public Timestamp getUpdateat() {
-        return updateat;
-    }
-
-    public void setUpdateat(Timestamp updateat) {
-        this.updateat = updateat;
+    public FavoriteSet getFavoriteSets() {
+        return favoriteSet;
     }
 }
