@@ -64,7 +64,9 @@ public class AccountServiceImpl implements AccountService{
         FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
         List<FavoriteSetItem> items=itemDao.getFavoriteSetItemsBySetId(favoriteSet.getSetId());
         List<House> houses=new ArrayList<House>();
+        //System.out.println(items);
         for(FavoriteSetItem item :items){
+            //System.out.println(houseService.getHouseById(item.getHouseId()));
             houses.add(houseService.getHouseById(item.getHouseId()));
         }
         return houses;

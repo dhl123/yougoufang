@@ -1,6 +1,7 @@
 package com.youzufang.javatest.com.youzufang.service.impl;
 
 import com.youzufang.model.Account;
+import com.youzufang.model.House;
 import com.youzufang.service.AccountService;
 import com.youzufang.service.impl.AccountServiceImpl;
 import org.junit.Test;
@@ -12,6 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
+import sun.net.www.http.Hurryable;
+
+import java.util.List;
 
 /** 
 * AccountServiceImpl Tester. 
@@ -79,8 +83,14 @@ public void testGetUserById() throws Exception {
 * 
 */ 
 @Test
-public void testGetUserFavorite() throws Exception { 
-//TODO: Test goes here... 
+public void testGetUserFavorite() throws Exception {
+/*Account account=new Account();
+account.setUserId(1);
+    List<House> houses= accountService.getUserFavorite(account);
+    for(House house:houses){
+        System.out.println(house.getHouseId());
+    }
+*/
 } 
 
 /** 
@@ -89,8 +99,22 @@ public void testGetUserFavorite() throws Exception {
 * 
 */ 
 @Test
-public void testAddHouseToUserFavorite() throws Exception { 
-//TODO: Test goes here... 
+public void testAddHouseToUserFavorite() throws Exception {
+    //Account account=new Account();
+    //account.setUserId(1);
+    //House house=new House();
+    /*house.setArea(100);
+    house.setBookMoney(200);
+    house.setDecoration(0);
+    house.setEquipment("equipment2");
+    house.setFloor(8);
+    house.setImages("images1");
+    house.setIntroduction("introduction2");
+    house.setType("type2");
+    house.setRentMoney(10);
+    house.setLocation("shanghai");*/
+    //house.setHouseId(1);
+    //accountService.addHouseToUserFavorite(account,house);
 } 
 
 /** 
@@ -99,8 +123,8 @@ public void testAddHouseToUserFavorite() throws Exception {
 * 
 */ 
 @Test
-public void testRemoveHouseFromUserFavorite() throws Exception { 
-//TODO: Test goes here... 
+public void testRemoveHouseFromUserFavorite() throws Exception {
+
 } 
 
 

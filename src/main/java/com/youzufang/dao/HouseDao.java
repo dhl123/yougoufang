@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface HouseDao extends JpaRepository<House, Integer> {
     //House getAccountByUsername(String username);
-    House getHouseByHouseId(int Id);
+    House getHouseByHouseId(int houseId);
 }
