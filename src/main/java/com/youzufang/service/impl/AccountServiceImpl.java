@@ -73,20 +73,25 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+    @Transactional
     public List<House> addHouseToUserFavorite(Account user, House house) {
         FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
         FavoriteSetItem item=new FavoriteSetItem();
         item.setHouseId(house.getHouseId());
         item.setUserId(user.getUserId());
         item.setSetId(favoriteSet.getSetId());
-        itemDao.save(item);
+        if(itemDao.getFavoriteSetItemBySetIdAndHouseId(favoriteSet.getSetId(),house.getHouseId())==null){
+            itemDao.save(item);
+        }
         return getUserFavorite(user);
     }
 
     @Override
+    @Transactional
     public List<House> removeHouseFromUserFavorite(Account user, House house) {
         FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
-        itemDao.deleteFavoriteSetItemBySetIdAndHouseId(favoriteSet.getSetId(),house.getHouseId());
+      //  System.out.println(favoriteSet);
+        itemDao.removeBySetIdAndHouseId(favoriteSet.getSetId(),house.getHouseId());
         return getUserFavorite(user);
 
     }

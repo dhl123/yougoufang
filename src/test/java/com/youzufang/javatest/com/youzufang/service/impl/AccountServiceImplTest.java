@@ -84,7 +84,8 @@ public void testGetUserById() throws Exception {
 */ 
 @Test
 public void testGetUserFavorite() throws Exception {
-/*Account account=new Account();
+    /*
+Account account=new Account();
 account.setUserId(1);
     List<House> houses= accountService.getUserFavorite(account);
     for(House house:houses){
@@ -100,9 +101,9 @@ account.setUserId(1);
 */ 
 @Test
 public void testAddHouseToUserFavorite() throws Exception {
-    //Account account=new Account();
-    //account.setUserId(1);
-    //House house=new House();
+ //   Account account=new Account();
+ //   account.setUserId(1);
+  //  House house=new House();
     /*house.setArea(100);
     house.setBookMoney(200);
     house.setDecoration(0);
@@ -113,7 +114,7 @@ public void testAddHouseToUserFavorite() throws Exception {
     house.setType("type2");
     house.setRentMoney(10);
     house.setLocation("shanghai");*/
-    //house.setHouseId(1);
+    //house.setHouseId(3);
     //accountService.addHouseToUserFavorite(account,house);
 } 
 
@@ -124,7 +125,12 @@ public void testAddHouseToUserFavorite() throws Exception {
 */ 
 @Test
 public void testRemoveHouseFromUserFavorite() throws Exception {
-
+    /*Account account=new Account();
+    account.setUserId(1);
+    House house=new House();
+    house.setHouseId(3);
+    accountService.removeHouseFromUserFavorite(account,house);
+    */
 } 
 
 

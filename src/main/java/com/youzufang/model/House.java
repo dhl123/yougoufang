@@ -13,6 +13,8 @@ public class House {
     @Column(name = "houseId")
     private int houseId;
 
+
+
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -42,13 +44,21 @@ public class House {
 
     @Column(insertable = false,updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Timestamp updatedAt;
+    @Column
+    private int userId;
+    public int getUserId() {
+        return userId;
+    }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-   // @Column
+    // @Column
     @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn(name="userId")
-    private Account user;
+    @JoinColumn(name="userId",insertable = false,updatable = false)
 
+    private Account user;
 
     @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)

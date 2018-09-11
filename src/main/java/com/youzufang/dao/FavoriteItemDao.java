@@ -9,5 +9,5 @@ public interface FavoriteItemDao extends JpaRepository<FavoriteSetItem, Integer>
     //House getAccountByUsername(String username);
     List<FavoriteSetItem> getFavoriteSetItemsBySetId(int setId);
     FavoriteSetItem getFavoriteSetItemBySetIdAndHouseId(int setId,int houseId);
-    void deleteFavoriteSetItemBySetIdAndHouseId(int setId,int houseId);
+    void removeBySetIdAndHouseId(int setId,int houseId);
 }

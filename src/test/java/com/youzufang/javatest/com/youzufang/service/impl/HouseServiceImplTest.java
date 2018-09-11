@@ -1,5 +1,7 @@
 package com.youzufang.javatest.com.youzufang.service.impl;
 
+import com.youzufang.model.House;
+import com.youzufang.service.HouseService;
 import com.youzufang.service.impl.AccountServiceImpl;
 import com.youzufang.service.impl.HouseServiceImpl;
 import org.junit.Test;
@@ -9,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /** 
 * HouseServiceImpl Tester. 
@@ -47,8 +51,23 @@ public void testGetHouseById() throws Exception {
 * 
 */ 
 @Test
-public void testReleaseHouse() throws Exception { 
-//TODO: Test goes here... 
+public void testReleaseHouse() throws Exception {
+/*
+    House house=new House();
+    house.setArea(100);
+    house.setBookMoney(200);
+    house.setDecoration(0);
+    house.setEquipment("equipment2");
+    house.setFloor(8);
+    house.setImages("images1");
+    house.setIntroduction("introduction2");
+    house.setType("type2");
+    house.setRentMoney(10);
+    house.setLocation("shanghai");
+    house.setUserId(1);
+    houseService.releaseHouse(house);
+    */
+
 } 
 
 /** 
@@ -57,9 +76,12 @@ public void testReleaseHouse() throws Exception {
 * 
 */ 
 @Test
-public void testGetAllHouse() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-
+public void testGetAllHouse() throws Exception {
+   /* List<House> houses=houseService.getAllHouse();
+   // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    for(House house:houses){
+    //    System.out.println("----------------------------------------------");
+        System.out.println(house.getHouseId());
+    }*/
+}
 } 
