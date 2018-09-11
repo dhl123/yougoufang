@@ -21,6 +21,7 @@ public class HouseServiceImpl implements HouseService{
         return dao.getHouseByHouseId(id);
     }
     @Override
+
     public House releaseHouse(House house){
         dao.save(house);
         return house;

@@ -51,14 +51,14 @@ public class ReviewServiceImpl implements ReviewService{
     }
     @Override
     public QuestionAns removePlusFromAnswer(Account user, QuestionAns answer){
-        QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndaAndAnswerId(user.getUserId(),answer.getAnswerId());
+        QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndAnswerId(user.getUserId(),answer.getAnswerId());
         questionAnsPlusDao.delete(questionAnsPlus);
         return answer;
     }
 
     @Override
    public QuestionAns togglePlus(Account user, QuestionAns answer){
-       QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndaAndAnswerId(user.getUserId(),answer.getAnswerId());
+       QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndAnswerId(user.getUserId(),answer.getAnswerId());
        if(questionAnsPlus==null){
             plusToAnswer(user,answer,questionAnsPlus);
        }

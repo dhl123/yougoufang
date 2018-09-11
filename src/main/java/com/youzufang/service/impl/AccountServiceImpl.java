@@ -35,7 +35,8 @@ public class AccountServiceImpl implements AccountService{
     @Override
     @Transactional
     public Account register(Account account) {
-        if (dao.getAccountByUsername(account.getUsername()) != null) {
+        System.out.println("hahaha");
+        if (dao.getAccountByUsername(account.getUsername()) == null) {
             dao.save(account);
             return login(account.getUsername(), account.getPassword());
         } else {

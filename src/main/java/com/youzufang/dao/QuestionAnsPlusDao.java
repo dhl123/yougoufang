@@ -5,5 +5,5 @@ import com.youzufang.model.QuestionAnsPlus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface QuestionAnsPlusDao extends JpaRepository<QuestionAnsPlus, Integer> {
-    QuestionAnsPlus findByUserIdAndaAndAnswerId(int userId,int answerId);
+    QuestionAnsPlus findByUserIdAndAnswerId(int userId,int answerId);
 }
