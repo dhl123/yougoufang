@@ -14,11 +14,11 @@ public interface ReviewService {
 
     // 创建一个 QuestionAns 然后添加到这个 question 里, 返回 answer
     // 设置 answer 的 userId 为 user.id
-    //QuestionAns addAnswerToQuestion(Account user, Question question, QuestionAns answer);
+    QuestionAns addAnswerToQuestion(Account user, Question question, QuestionAns answer);
 
     // 创建一个 QuestionAnsPlus 然后添加到 answer 里, 返回 QuestionAns
     // 要设置 userId
-   // QuestionAns plusToAnswer(Account user, QuestionAns answer);
+    QuestionAns plusToAnswer(Account user, QuestionAns ans,QuestionAnsPlus answerPlus);
 
     // 删除指定的 QuestionAnsPlus
     // 根据 user.id -> userId 查到对应的 QuestionAns 然后删除
