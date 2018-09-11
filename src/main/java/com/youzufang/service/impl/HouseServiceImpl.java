@@ -17,7 +17,7 @@ public class HouseServiceImpl implements HouseService{
         this.dao = dao;
     }
     public House getHouseById(int id){
-        return dao.getHouseById(id);
+        return dao.getHouseByHouseId(id);
     }
     // 发布房屋
     // 创建一个 house 对象然后把里面的 user 设置成发布人

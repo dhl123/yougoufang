@@ -1,15 +1,13 @@
 package com.youzufang.model;
 
-import com.youzufang.model.base.BaseModel;
-
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
 @Table(name = "user")
 
-//FIXME: 从 BaseModel 继承, 它实现了Id,CreatedAt和DeletedAt这几个字段, 所有的Model都有这几个字段所以提取出来
-public class Account extends BaseModel {
+public class Account {
     private String username;
     private String password;
     private String phonenumber;
@@ -17,6 +15,41 @@ public class Account extends BaseModel {
     private String address;
     private String pubkey;
     private String privkey;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId")
+    private int userId;
+
+    @Column(insertable = false,updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp createdAt;
+
+    @Column(insertable = false,updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    private Timestamp updatedAt;
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="userId")

@@ -17,17 +17,16 @@ public class ReviewServiceImpl implements ReviewService{
     public ReviewServiceImpl(CommentDao dao) {
         this.dao = dao;
     }
+    // 创建一个 Comment 然后添加到 house.comments 这个 list 里, 返回 comment
+    // 设置 comment 的 userId 为 user.id
     public Comment addCommentToHouse(Account user, House house, Comment comment){
-    comment.setUserId(user.getId());
-    comment.setHouseId(house.getId());
-    dao.save(comment);
-    return comment;
+        comment.setUserId(user.getUserId());
      }
 
 
     // 创建一个 Question 然后添加到 house.questions 里, 返回 question
     // 设置 question 的 userId 为 user.id
-    public Question addQuestionToHouse(Account user, House house, Question question){
+  //  public Question addQuestionToHouse(Account user, House house, Question question){
 
-    }
+    //}
 }

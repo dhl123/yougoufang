@@ -54,14 +54,14 @@ public class AccountServiceImpl implements AccountService{
     @Override
     @Transactional
     public Account getUserById(int id) {
-        return dao.getAccountById(id);
+        return dao.getAccountByUserId(id);
     }
 
 
     @Override
     public List<House> getUserFavorite(Account user) {
-        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
-        List<FavoriteSetItem> items=itemDao.getFavoriteSetItemsBySetId(favoriteSet.getId());
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
+        List<FavoriteSetItem> items=itemDao.getFavoriteSetItemsBySetId(favoriteSet.getSetId());
         List<House> houses=new ArrayList<House>();
         for(FavoriteSetItem item :items){
             houses.add(houseService.getHouseById(item.getHouseId()));
@@ -73,19 +73,19 @@ public class AccountServiceImpl implements AccountService{
     // 获得用户的收藏夹, 然后创建一个新的 FavoriteSetItem, 设置它的 houseId 之后添加到 user.favoriteSet.items 里
     @Override
     public List<House> addHouseToUserFavorite(Account user, House house) {
-        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
         FavoriteSetItem item=new FavoriteSetItem();
-        item.setHouseId(house.getId());
-        item.setUserId(user.getId());
-        item.setSetId(favoriteSet.getId());
+        item.setHouseId(house.getHouseId());
+        item.setUserId(user.getUserId());
+        item.setSetId(favoriteSet.getSetId());
         itemDao.save(item);
         return getUserFavorite(user);
     }
 
     @Override
     public List<House> removeHouseFromUserFavorite(Account user, House house) {
-        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getId());
-        itemDao.deleteFavoriteSetItemBySetIdAndHouseId(favoriteSet.getId(),house.getId());
+        FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
+        itemDao.deleteFavoriteSetItemBySetIdAndHouseId(favoriteSet.getSetId(),house.getHouseId());
         return getUserFavorite(user);
 
     }
