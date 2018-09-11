@@ -23,10 +23,10 @@ public interface ReviewService {
     // 删除指定的 QuestionAnsPlus
     // 根据 user.id -> userId 查到对应的 QuestionAns 然后删除
     // 返回 answer
-   // QuestionAns removePlusFromAnswer(Account user, QuestionAns answer);
+    QuestionAns removePlusFromAnswer(Account user, QuestionAns answer);
 
     // 上面两个的封装, 切换目前的点赞状态
     // 先检查有没有点赞记录, 如果有就调用 removeFrom..., 否则调用 plusTo...
     // 返回 answer
-  //  QuestionAns togglePlus(Account user, QuestionAns answer);
+    QuestionAns togglePlus(Account user, QuestionAns answer);
 }

@@ -16,18 +16,16 @@ public class HouseServiceImpl implements HouseService{
     public HouseServiceImpl(HouseDao dao) {
         this.dao = dao;
     }
+    @Override
     public House getHouseById(int id){
         return dao.getHouseByHouseId(id);
     }
-    // 发布房屋
-    // 创建一个 house 对象然后把里面的 user 设置成发布人
-    // 返回发布后的 house
+    @Override
     public House releaseHouse(House house){
         dao.save(house);
         return house;
     }
-
-    // 直接查出所有的 house, 考虑那边用带分页的那个Page...Repository?
+    @Override
     public List<House> getAllHouse(){
         return dao.findAll();
     }

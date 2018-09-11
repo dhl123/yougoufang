@@ -22,33 +22,49 @@ public class ReviewServiceImpl implements ReviewService{
         this.questionAnsDao=questionAnsDao;
         this.questionAnsPlusDao=questionAnsPlusDao;
     }
-
+    @Override
     public Comment addCommentToHouse(Account user, House house, Comment comment){
         comment.setUserId(user.getUserId());
         comment.setHouseId(house.getHouseId());
         dao.save(comment);
         return comment;
      }
-
+    @Override
     public Question addQuestionToHouse(House house, Question question){
         question.setHouseId(house.getHouseId());
         questionDao.save(question);
         return question;
     }
-    // 创建一个 QuestionAns 然后添加到这个 question 里, 返回 answer
-    // 设置 answer 的 userId 为 user.id
+    @Override
     public QuestionAns addAnswerToQuestion(Account user, Question question, QuestionAns answer){
         answer.setQuestionId(question.getQuestionId());
         answer.setUserId(user.getUserId());
         questionAnsDao.save(answer);
         return answer;
     }
-    // 创建一个 QuestionAnsPlus 然后添加到 answer 里, 返回 QuestionAns
-    // 要设置 userId
+    @Override
    public QuestionAns plusToAnswer(Account user, QuestionAns ans,QuestionAnsPlus answerPlus){
         answerPlus.setAnswerId(ans.getAnswerId());
         answerPlus.setUserId(user.getUserId());
         questionAnsPlusDao.save(answerPlus);
         return ans;
+    }
+    @Override
+    public QuestionAns removePlusFromAnswer(Account user, QuestionAns answer){
+        QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndaAndAnswerId(user.getUserId(),answer.getAnswerId());
+        questionAnsPlusDao.delete(questionAnsPlus);
+        return answer;
+    }
+
+    @Override
+   public QuestionAns togglePlus(Account user, QuestionAns answer){
+       QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndaAndAnswerId(user.getUserId(),answer.getAnswerId());
+       if(questionAnsPlus==null){
+            plusToAnswer(user,answer,questionAnsPlus);
+       }
+       else {
+           removePlusFromAnswer(user, answer);
+       }
+       return answer;
     }
 }

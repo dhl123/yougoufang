@@ -69,8 +69,6 @@ public class AccountServiceImpl implements AccountService{
         return houses;
     }
 
-    // 添加到收藏夹
-    // 获得用户的收藏夹, 然后创建一个新的 FavoriteSetItem, 设置它的 houseId 之后添加到 user.favoriteSet.items 里
     @Override
     public List<House> addHouseToUserFavorite(Account user, House house) {
         FavoriteSet favoriteSet= setDao.getFavoriteSetByUserId(user.getUserId());
