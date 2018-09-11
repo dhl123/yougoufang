@@ -12,6 +12,8 @@ public class Question {
     @Column(name = "questionId")
     private int questionId;
 
+    @Column(name="houseId")
+    private int houseId;
     public int getQuestionId() {
         return questionId;
     }
@@ -31,6 +33,15 @@ public class Question {
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
+
+    public int getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(int houseId) {
+        this.houseId = houseId;
+    }
+
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;

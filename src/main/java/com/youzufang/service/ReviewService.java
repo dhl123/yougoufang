@@ -6,11 +6,11 @@ import com.youzufang.model.*;
 public interface ReviewService {
     // 创建一个 Comment 然后添加到 house.comments 这个 list 里, 返回 comment
     // 设置 comment 的 userId 为 user.id
-   // Comment addCommentToHouse(Account user, House house, Comment comment);
+    Comment addCommentToHouse(Account user, House house, Comment comment);
 
     // 创建一个 Question 然后添加到 house.questions 里, 返回 question
     // 设置 question 的 userId 为 user.id
-   // Question addQuestionToHouse(Account user, House house, Question question);
+    Question addQuestionToHouse(House house, Question question);
 
     // 创建一个 QuestionAns 然后添加到这个 question 里, 返回 answer
     // 设置 answer 的 userId 为 user.id

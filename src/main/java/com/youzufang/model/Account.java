@@ -55,6 +55,10 @@ public class Account {
     @JoinColumn(name="userId")
     private FavoriteSet favoriteSet;
 
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="userId")
+    private List<QuestionAns> questionAns;
+
 
     public Account() {
     }

@@ -48,10 +48,19 @@ public class Comment {
         this.userId = userId;
     }
 
-    //FIXME: 好像做双向外键很麻烦, 这里直接用userId替代了, 业务层处理一下
     private int userId;
 
     private String Content;
+
+    public int getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(int houseId) {
+        this.houseId = houseId;
+    }
+    @Column(name="houseId")
+    private int houseId;
 
     public String getContent() {
         return Content;

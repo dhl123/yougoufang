@@ -48,6 +48,16 @@ public class QuestionAns{
     private List<QuestionAnsPlus> pluses;
     @Column
     private int questionId;
+    @Column
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getQuestionId() {
         return questionId;
