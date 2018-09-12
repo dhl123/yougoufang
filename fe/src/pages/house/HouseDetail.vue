@@ -9,6 +9,7 @@
                     <TabPane label="detail" name="detail">
                     </TabPane>
                     <TabPane label="comment" name="comment">
+                        
                     </TabPane>
                     <TabPane label="question" name="question">
                     </TabPane>

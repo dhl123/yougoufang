@@ -54,7 +54,7 @@ public class AccountController {
         account.setGender(gender);
         account.setAddress(address);
         accountService.register(account);
-        session.setAttribute("account", account);
+        session.setAttribute("user", account);
         return account.getUsername();
     }
 

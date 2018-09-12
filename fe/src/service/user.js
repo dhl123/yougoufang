@@ -13,7 +13,7 @@ async function login(username, password) {
     fd.append('username', username);
     fd.append('password', password);
     const result = await Vue.prototype.$http.post('/account/login', null, fd);
-    return true;
+    return result.data;
 }
 
 export default {

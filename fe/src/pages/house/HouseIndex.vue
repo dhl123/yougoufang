@@ -134,7 +134,13 @@
 }
 </style>
 <script>
+import HouseCard from '@/components/HouseCard.vue';
+import houseService from '@/service/house.js';
+
 export default {
+    components: {
+        HouseCard
+    },
     computed: {
         condition() {
             // 1. 把下面的 cbXXXX 读出来
@@ -169,19 +175,12 @@ export default {
             txAreaLowerBound: '',
             txAreaUpperBound: '',
             cbType: [],
-            arrHouse: [
-                {
-                    description: 'description',
-                    type: 'type',
-                    area: 100,
-                    location: 'location',
-                    floor: 1,
-                    createdAt: new Date().toISOString(),
-                    updatedAt: new Date().toISOString(),
-                    rentMoney: 1000
-                }
-            ]
+            arrHouse: []
         };
+    },
+    async created() {
+        const data = await houseService.getAllHouse();
+        this.arrHouse = data;
     },
     methods: {
         clearCondition() {

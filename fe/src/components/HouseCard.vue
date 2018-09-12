@@ -6,7 +6,7 @@
             </Col>
             <Col span="12">
                 <p style="color: #2d8cf0; font-weight: bold; font-size: 22px; padding-bottom: 10px;">
-                    <router-link :to="'/house/detail/' + data.id">{{ data.description }} </router-link>
+                    <router-link :to="'/house/detail/' + data.id">{{ data.introduction }} </router-link>
                 </p>
                 <p style="font-weight: bold;">{{ data.type }}  {{ data.area }} 平米</p>
                 <p style="color: gray; padding-top: 10px;">{{ data.location }}  / {{ data.floor }} 楼 / {{ data.createdAt.substr(0,4)}} 年建</p>
