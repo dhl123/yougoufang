@@ -1,5 +1,8 @@
 package com.youzufang.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -53,10 +56,12 @@ public class Account {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="userId")
+    @JsonIgnore
     private FavoriteSet favoriteSet;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="userId")
+    @JsonIgnore
     private List<QuestionAns> questionAns;
 
 

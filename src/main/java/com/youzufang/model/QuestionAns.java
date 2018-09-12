@@ -1,6 +1,8 @@
 package com.youzufang.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -45,6 +47,7 @@ public class QuestionAns{
    // @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="answerId")
+    @JsonIgnore
     private List<QuestionAnsPlus> pluses;
     @Column
     private int questionId;

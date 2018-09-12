@@ -1,6 +1,8 @@
 package com.youzufang.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -57,17 +59,19 @@ public class House {
     // @Column
     @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(name="userId",insertable = false,updatable = false)
-
+    @JsonIgnore
     private Account user;
 
     @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="houseId")
+    @JsonIgnore
     private List<Comment> comments;
 
     @Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="houseId")
+    @JsonIgnore
     private List<Question> questions;
 
     public Account getUser() {

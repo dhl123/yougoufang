@@ -2,6 +2,7 @@ package com.youzufang.service;
 
 import com.youzufang.model.Account;
 import com.youzufang.model.House;
+import sun.management.counter.AbstractCounter;
 
 import java.util.List;
 
@@ -11,7 +12,6 @@ public interface AccountService {
     // 注册
     // 把一个 account 添加到数据库里
     Account register(Account account);
-
     // 登录
     // 检查 username 和 password 是否正确, 正确则返回一个 account 对象
     // 在 controller 层保存到 session里

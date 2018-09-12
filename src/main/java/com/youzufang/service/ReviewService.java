@@ -2,6 +2,8 @@ package com.youzufang.service;
 
 import com.youzufang.model.*;
 
+import java.util.List;
+
 // 评论相关
 public interface ReviewService {
     // 创建一个 Comment 然后添加到 house.comments 这个 list 里, 返回 comment
@@ -29,4 +31,10 @@ public interface ReviewService {
     // 先检查有没有点赞记录, 如果有就调用 removeFrom..., 否则调用 plusTo...
     // 返回 answer
     QuestionAns togglePlus(Account user, QuestionAns answer);
+
+
+    List<Question> getQuestionsByHouseId(int houseId);
+    List<Comment> getCommentsByHouseId(int houseId);
+    List<QuestionAns> getAnswerByQuestionId(int questionId);
+    List<QuestionAnsPlus> getPlusByAnswerId(int answerId);
 }

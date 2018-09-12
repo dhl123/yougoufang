@@ -1,6 +1,8 @@
 package com.youzufang.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -47,6 +49,7 @@ public class FavoriteSet {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="setId")
+    @JsonIgnore
     private List<FavoriteSetItem> items;
 
     public String getName() {
