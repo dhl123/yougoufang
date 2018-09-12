@@ -60,7 +60,7 @@ public class ReviewServiceImpl implements ReviewService{
    public QuestionAns togglePlus(Account user, QuestionAns answer){
        QuestionAnsPlus questionAnsPlus=questionAnsPlusDao.findByUserIdAndAnswerId(user.getUserId(),answer.getAnswerId());
        if(questionAnsPlus==null){
-            plusToAnswer(user,answer,questionAnsPlus);
+            plusToAnswer(user,answer,new QuestionAnsPlus());
        }
        else {
            removePlusFromAnswer(user, answer);

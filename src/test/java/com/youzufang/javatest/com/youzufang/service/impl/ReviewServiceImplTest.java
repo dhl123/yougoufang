@@ -81,12 +81,13 @@ reviewService.addAnswerToQuestion(user,question,new QuestionAns());*/
 */ 
 @Test
 public void testPlusToAnswer() throws Exception {
-
+/*
     Account user=new Account();
     user.setUserId(1);
     QuestionAns ans=new QuestionAns();
     ans.setAnswerId(1);
     reviewService.plusToAnswer(user,ans,new QuestionAnsPlus());
+    */
 } 
 
 /** 
@@ -95,8 +96,13 @@ public void testPlusToAnswer() throws Exception {
 * 
 */ 
 @Test
-public void testRemovePlusFromAnswer() throws Exception { 
-//TODO: Test goes here... 
+public void testRemovePlusFromAnswer() throws Exception {
+   /* Account user=new Account();
+    user.setUserId(1);
+    QuestionAns ans=new QuestionAns();
+    ans.setAnswerId(1);
+    reviewService.removePlusFromAnswer(user,ans);
+    */
 } 
 
 /** 
@@ -105,8 +111,14 @@ public void testRemovePlusFromAnswer() throws Exception {
 * 
 */ 
 @Test
-public void testTogglePlus() throws Exception { 
-//TODO: Test goes here... 
+public void testTogglePlus() throws Exception {
+    /*
+    Account user=new Account();
+    user.setUserId(1);
+    QuestionAns ans=new QuestionAns();
+    ans.setAnswerId(1);
+    reviewService.togglePlus(user,ans);
+    */
 } 
 
 
