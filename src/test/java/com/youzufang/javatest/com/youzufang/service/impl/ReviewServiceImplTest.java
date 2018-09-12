@@ -1,6 +1,8 @@
 package com.youzufang.javatest.com.youzufang.service.impl;
 
+import com.youzufang.model.*;
 import com.youzufang.service.impl.ReviewServiceImpl;
+import org.hibernate.tool.schema.spi.CommandAcceptanceException;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
@@ -36,8 +38,14 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testAddCommentToHouse() throws Exception { 
-//TODO: Test goes here... 
+public void testAddCommentToHouse() throws Exception {
+    /*Comment comment=new Comment();
+    comment.setContent("comment1");
+    House house= new House();
+    house.setHouseId(1);
+    Account user=new Account();
+    user.setUserId(1);
+    reviewService.addCommentToHouse(user,house,comment);*/
 } 
 
 /** 
@@ -46,8 +54,10 @@ public void testAddCommentToHouse() throws Exception {
 * 
 */ 
 @Test
-public void testAddQuestionToHouse() throws Exception { 
-//TODO: Test goes here... 
+public void testAddQuestionToHouse() throws Exception {
+   /* House house= new House();
+    house.setHouseId(1);
+    reviewService.addQuestionToHouse(house,new Question());*/
 } 
 
 /** 
@@ -56,8 +66,12 @@ public void testAddQuestionToHouse() throws Exception {
 * 
 */ 
 @Test
-public void testAddAnswerToQuestion() throws Exception { 
-//TODO: Test goes here... 
+public void testAddAnswerToQuestion() throws Exception {
+    /*Account user=new Account();
+    user.setUserId(1);
+    Question question=new Question();
+    question.setQuestionId(1);
+reviewService.addAnswerToQuestion(user,question,new QuestionAns());*/
 } 
 
 /** 
@@ -66,8 +80,13 @@ public void testAddAnswerToQuestion() throws Exception {
 * 
 */ 
 @Test
-public void testPlusToAnswer() throws Exception { 
-//TODO: Test goes here... 
+public void testPlusToAnswer() throws Exception {
+
+    Account user=new Account();
+    user.setUserId(1);
+    QuestionAns ans=new QuestionAns();
+    ans.setAnswerId(1);
+    reviewService.plusToAnswer(user,ans,new QuestionAnsPlus());
 } 
 
 /** 
