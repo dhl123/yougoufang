@@ -67,11 +67,13 @@ public void testAddQuestionToHouse() throws Exception {
 */ 
 @Test
 public void testAddAnswerToQuestion() throws Exception {
-    /*Account user=new Account();
+ /*   Account user=new Account();
     user.setUserId(1);
     Question question=new Question();
     question.setQuestionId(1);
-reviewService.addAnswerToQuestion(user,question,new QuestionAns());*/
+    QuestionAns questionAns=new QuestionAns();
+    questionAns.setAnscontent("content");
+reviewService.addAnswerToQuestion(user,question,questionAns);*/
 } 
 
 /** 

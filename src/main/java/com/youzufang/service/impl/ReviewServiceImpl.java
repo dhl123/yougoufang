@@ -89,4 +89,10 @@ public class ReviewServiceImpl implements ReviewService{
     public List<QuestionAnsPlus> getPlusByAnswerId(int answerId) {
         return questionAnsDao.getOne(answerId).getPluses();
     }
+    public Question getQuestionById(int questionId){
+        return questionDao.getQuestionByQuestionId(questionId);
+    }
+    public QuestionAns getQuestionAnsById(int answerId){
+        return questionAnsDao.getQuestionAnsByAnswerId(answerId);
+    }
 }

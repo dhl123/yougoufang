@@ -11,8 +11,9 @@ import java.util.List;
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "questionId")
+    @Column
     private int questionId;
+
 
     @Column(name="houseId")
     private int houseId;
@@ -54,6 +55,18 @@ public class Question {
 
     @Column(insertable = false,updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Timestamp updatedAt;
+
+    public String getQuescontent() {
+        return Quescontent;
+    }
+
+    public void setQuescontent(String quescontent) {
+        Quescontent = quescontent;
+    }
+
+    @Column
+    private String Quescontent;
+
     //@Column
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="questionId")

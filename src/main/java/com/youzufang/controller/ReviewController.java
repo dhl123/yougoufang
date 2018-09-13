@@ -1,8 +1,6 @@
 package com.youzufang.controller;
 
-import com.youzufang.model.Account;
-import com.youzufang.model.Comment;
-import com.youzufang.model.House;
+import com.youzufang.model.*;
 import com.youzufang.service.HouseService;
 import com.youzufang.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +43,32 @@ public class ReviewController {
         reviewService.addCommentToHouse(account, house, comment);
         return comment;
     }
+    @PostMapping("/review/addQuestionToHouse")
+    public Question addQuestionToHouse(@RequestParam("content") String content,@RequestParam("houseId") int houseId,
+                                       HttpSession session) {
+        House house = houseService.getHouseById(houseId);
+        Question question=new Question();
+        question.setQuescontent(content);
+        return reviewService.addQuestionToHouse(house,question);
+        //return question;
+    }
+    @PostMapping("/review/addAnswerToQuestion")
+    public QuestionAns addAnswerToQuestion(@RequestParam("content") String content,@RequestParam("questionId") int questionId,
+                                       HttpSession session) {
+        Account user=(Account)session.getAttribute("user");
+        Question question=reviewService.getQuestionById(questionId);
+        QuestionAns questionAns=new QuestionAns();
+        questionAns.setAnscontent(content);
+        return reviewService.addAnswerToQuestion(user,question,questionAns);
+    }
+    @PostMapping("/review/togglePlus")
+    public QuestionAns togglePlus(@RequestParam("questionAnsId") int ansId,
+                                           HttpSession session) {
+        Account user=(Account)session.getAttribute("user");
+        QuestionAns questionAns=reviewService.getQuestionAnsById(ansId);
+        return reviewService.togglePlus(user,questionAns);
+    }
+
 
     
 }

@@ -19,6 +19,18 @@ public class QuestionAns{
         return answerId;
     }
 
+    public String getAnscontent() {
+        return Anscontent;
+    }
+
+    public void setAnscontent(String anscontent) {
+        Anscontent = anscontent;
+    }
+
+    @Column
+    private String Anscontent;
+
+
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }

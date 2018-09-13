@@ -31,8 +31,8 @@ public interface ReviewService {
     // 先检查有没有点赞记录, 如果有就调用 removeFrom..., 否则调用 plusTo...
     // 返回 answer
     QuestionAns togglePlus(Account user, QuestionAns answer);
-
-
+    QuestionAns getQuestionAnsById(int answerId);
+    Question getQuestionById(int questionId);
     List<Question> getQuestionsByHouseId(int houseId);
     List<Comment> getCommentsByHouseId(int houseId);
     List<QuestionAns> getAnswerByQuestionId(int questionId);
