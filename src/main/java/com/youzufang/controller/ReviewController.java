@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 // 对 ReviewService 的封装, 加上session之类的功能
 @RestController
@@ -61,6 +62,8 @@ public class ReviewController {
         questionAns.setAnscontent(content);
         return reviewService.addAnswerToQuestion(user,question,questionAns);
     }
+
+
     @PostMapping("/review/togglePlus")
     public QuestionAns togglePlus(@RequestParam("questionAnsId") int ansId,
                                            HttpSession session) {
@@ -68,7 +71,26 @@ public class ReviewController {
         QuestionAns questionAns=reviewService.getQuestionAnsById(ansId);
         return reviewService.togglePlus(user,questionAns);
     }
+    @PostMapping("/review/getQuestionsByHouseId")
+    public List<Question> getQuestionsByHouseId(@RequestParam("houseId") int houseId,
+                                                   HttpSession session) {
+        return reviewService.getQuestionsByHouseId(houseId);
+    }
 
+    @PostMapping("/review/getCommentsByHouseId")
+    public List<Comment> getCommentsByHouseId(@RequestParam("houseId") int houseId,
+                                                HttpSession session) {
+        return reviewService.getCommentsByHouseId(houseId);
+    }
 
-    
+    @PostMapping("/review/getAnswerByQuestionId")
+    public List<QuestionAns> getAnswerByQuestionId(@RequestParam("questionId") int questionId,
+                                              HttpSession session) {
+        return reviewService.getAnswerByQuestionId(questionId);
+    }
+    @PostMapping("/review/getPlusByAnswerId")
+    public List<QuestionAnsPlus> getPlusByAnswerId(@RequestParam("answerId") int answerId,
+                                                   HttpSession session) {
+        return reviewService.getPlusByAnswerId(answerId);
+    }
 }

@@ -57,7 +57,9 @@ public void testAddCommentToHouse() throws Exception {
 public void testAddQuestionToHouse() throws Exception {
    /* House house= new House();
     house.setHouseId(1);
-    reviewService.addQuestionToHouse(house,new Question());*/
+    Question question=new Question();
+    question.setQuescontent("questionContent");
+    reviewService.addQuestionToHouse(house,question);*/
 } 
 
 /** 
